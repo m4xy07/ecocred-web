@@ -2,8 +2,13 @@
 const nextConfig = {
   output: "export",
 
+  // 🔴 REQUIRED for GitHub Pages
+  basePath: "",
+  assetPrefix: "",
+
   images: {
-    unoptimized: true, 
+    unoptimized: true,
+  },
 
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -25,7 +30,6 @@ const nextConfig = {
     );
 
     fileLoaderRule.exclude = /\.svg$/i;
-
     return config;
   },
 };
